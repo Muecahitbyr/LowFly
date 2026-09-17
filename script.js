@@ -11,6 +11,20 @@ import biancaPhoto from './assets/mitarbeiter/bianca.webp';
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// known real photos by team-block key; anyone missing here (e.g. Sandra, no
+// photo yet) falls through to their data-photo attribute, which 404s
+// gracefully into the initials avatar
+const knownTeamPhotos = { haci: haciPhoto, melissa: melissaPhoto, elias: eliasPhoto, bianca: biancaPhoto };
+
+/* ---------- team per-card photos (mobile): every block shows its own photo
+   inline, since on mobile the list scrolls but nothing stays pinned to
+   preview it like on desktop ---------- */
+document.querySelectorAll('.team-block-img').forEach((img) => {
+  const block = img.closest('.team-block');
+  img.addEventListener('error', () => { img.style.display = 'none'; }, { once: true });
+  img.src = knownTeamPhotos[img.dataset.key] || block.dataset.photo;
+});
+
 /* ---------- team sticky-scroll: active block detection + image crossfade ---------- */
 (function initTeamSticky() {
   const blocks = Array.from(document.querySelectorAll('.team-block'));
@@ -23,11 +37,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
   const fallbackEl = document.getElementById('teamVisualFallback');
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // known real photos by team-block key; anyone missing here (e.g. Sandra,
-  // no photo yet) simply falls through to their data-photo attribute, which
-  // 404s gracefully into the initials avatar
-  const knownPhotos = { haci: haciPhoto, melissa: melissaPhoto, elias: eliasPhoto, bianca: biancaPhoto };
-
   let activeBlock = blocks[0];
   let swapTimer = null;
 
@@ -37,7 +46,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
     fallbackEl.textContent = block.dataset.initials;
     fallbackEl.style.setProperty('--hue', block.dataset.hue);
     imgEl.style.display = '';
-    imgEl.src = knownPhotos[block.dataset.key] || block.dataset.photo;
+    imgEl.src = knownTeamPhotos[block.dataset.key] || block.dataset.photo;
   }
 
   function setActive(block) {

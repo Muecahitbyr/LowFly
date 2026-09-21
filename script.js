@@ -2,14 +2,15 @@
 // Fahrschule Low Fly — interactions
 // ============================================================
 
+import './common.js';
+import { getConsent, grantMapsConsent } from './consent.js';
+
 // real employee photos — imported so Vite resolves/hashes/copies them into
 // the production build (a data-photo string alone wouldn't be picked up)
 import haciPhoto from './assets/mitarbeiter/haci.webp';
 import melissaPhoto from './assets/mitarbeiter/melissa.webp';
 import eliasPhoto from './assets/mitarbeiter/elias.webp';
 import biancaPhoto from './assets/mitarbeiter/bianca.webp';
-
-document.getElementById('year').textContent = new Date().getFullYear();
 
 // known real photos by team-block key; anyone missing here (e.g. Sandra, no
 // photo yet) falls through to their data-photo attribute, which 404s
@@ -104,18 +105,6 @@ function onScroll() {
 }
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
-
-/* ---------- mobile nav ---------- */
-const burger = document.getElementById('navBurger');
-const navLinks = document.getElementById('navLinks');
-burger.addEventListener('click', () => {
-  burger.classList.toggle('open');
-  navLinks.classList.toggle('open');
-});
-navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  burger.classList.remove('open');
-  navLinks.classList.remove('open');
-}));
 
 /* ---------- reveal on scroll ---------- */
 const revealTargets = document.querySelectorAll('.reveal, .reveal-scale, .reveal-word');
@@ -234,3 +223,26 @@ form.addEventListener('submit', (e) => {
   formNote.textContent = `Danke${name ? ', ' + name : ''}! Bitte sende deine Anfrage zusätzlich per Telefon oder E-Mail ab, damit wir sie sicher erhalten.`;
   form.reset();
 });
+
+/* ---------- Google Maps: only loaded after consent (TTDSG §25) ---------- */
+const mapWrap = document.querySelector('.map-wrap');
+if (mapWrap) {
+  const mapSrc = mapWrap.dataset.src;
+  const loadMap = () => {
+    const iframe = mapWrap.querySelector('iframe');
+    if (iframe && !iframe.src) iframe.src = mapSrc;
+    mapWrap.classList.add('is-loaded');
+  };
+  const consent = getConsent();
+  if (consent && consent.maps) {
+    loadMap();
+  } else {
+    mapWrap.querySelector('[data-map-load]')?.addEventListener('click', () => {
+      grantMapsConsent();
+      loadMap();
+    });
+  }
+  window.addEventListener('lowfly-consent-change', (e) => {
+    if (e.detail.maps) loadMap();
+  });
+}

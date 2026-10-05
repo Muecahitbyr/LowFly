@@ -441,12 +441,12 @@ body[data-loc="b"] [data-loc="a"] { display: none !important; }
 }
 .reviews-track {
   display: flex; align-items: flex-start; gap: 24px; width: max-content;
-  animation: reviewsScroll 124s linear infinite;
+  animation: reviewsScroll 350s linear infinite;
 }
 .reviews-marquee:hover .reviews-track { animation-play-state: paused; }
 @keyframes reviewsScroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-33.3333%); }
+  from { transform: translateX(-33.3333%); }
+  to { transform: translateX(0); }
 }
 @media (prefers-reduced-motion: reduce) {
   .reviews-track { animation: none; }

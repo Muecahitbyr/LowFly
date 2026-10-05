@@ -441,7 +441,7 @@ body[data-loc="b"] [data-loc="a"] { display: none !important; }
 }
 .reviews-track {
   display: flex; align-items: flex-start; gap: 24px; width: max-content;
-  animation: reviewsScroll 110s linear infinite;
+  animation: reviewsScroll 124s linear infinite;
 }
 .reviews-marquee:hover .reviews-track { animation-play-state: paused; }
 @keyframes reviewsScroll {

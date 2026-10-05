@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fahrschule Low Fly — Relaxt und schnell zum Führerschein</title>
-<meta name="description" content="Fahrschule Low Fly in Kaufbeuren — professionell, relaxt, effizient. Klassen B, BA, B197, B96 &amp; BE. Über 77 Google-Bewertungen mit 4,8 Sternen.">
+<meta name="description" content="Fahrschule Low Fly in Kaufbeuren — professionell, relaxt, effizient. Klassen B, BA, B197, B96 &amp; BE. Über 82 Google-Bewertungen mit 4,9 Sternen.">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-loc="a">
 
 <div class="grain"></div>
 
@@ -23,9 +23,14 @@
     <nav class="nav-links" id="navLinks">
       <a href="#werte">Werte</a>
       <a href="#klassen">Klassen</a>
+      <a href="#preise">Preise</a>
       <a href="#fuhrpark">Fuhrpark</a>
       <a href="#team">Team</a>
       <a href="#bewertungen">Bewertungen</a>
+      <div class="loc-switch" id="locSwitch" role="group" aria-label="Standort wählen">
+        <button type="button" class="loc-switch-btn" data-loc-btn="a" aria-pressed="true">Kaufbeuren</button>
+        <button type="button" class="loc-switch-btn" data-loc-btn="b" aria-pressed="false">Schongau</button>
+      </div>
       <a href="#kontakt" class="nav-cta">Kontakt</a>
     </nav>
     <button class="nav-burger" id="navBurger" aria-label="Menü öffnen">
@@ -60,7 +65,8 @@
   </div>
 
   <div class="hero-content">
-    <p class="eyebrow reveal">Fahrschule Low Fly · Kaufbeuren</p>
+    <p class="eyebrow reveal" data-loc="a">Fahrschule Low Fly · Kaufbeuren</p>
+    <p class="eyebrow reveal" data-loc="b">Fahrschule Low Fly · Schongau</p>
     <h1 class="hero-title">
       <span class="reveal-line"><span class="reveal-word">Relaxt</span> <span class="reveal-word">und</span></span>
       <span class="reveal-line"><span class="reveal-word">schnell</span> <span class="reveal-word">zum</span></span>
@@ -73,7 +79,8 @@
     </div>
     <div class="hero-rating reveal">
       <div class="stars" aria-hidden="true">★★★★★</div>
-      <span><strong>4,8</strong> · 77 Google&nbsp;Rezensionen</span>
+      <span data-loc="a"><strong>4,9</strong> · 82 Google&nbsp;Rezensionen</span>
+      <span data-loc="b"><strong>5,0</strong> · 8 Google&nbsp;Rezensionen</span>
     </div>
   </div>
 </section>
@@ -81,12 +88,20 @@
 <!-- ================= STATS ================= -->
 <section class="stats">
   <div class="stats-inner">
-    <div class="stat">
-      <span class="stat-num" data-count="4.8" data-decimals="1">0</span>
+    <div class="stat" data-loc="a">
+      <span class="stat-num" data-count="4.9" data-decimals="1">0</span>
       <span class="stat-label">Ø Google Bewertung</span>
     </div>
-    <div class="stat">
-      <span class="stat-num" data-count="77">0</span>
+    <div class="stat" data-loc="b">
+      <span class="stat-num" data-count="5" data-decimals="1">0</span>
+      <span class="stat-label">Ø Google Bewertung</span>
+    </div>
+    <div class="stat" data-loc="a">
+      <span class="stat-num" data-count="82">0</span>
+      <span class="stat-label">Rezensionen</span>
+    </div>
+    <div class="stat" data-loc="b">
+      <span class="stat-num" data-count="8">0</span>
       <span class="stat-label">Rezensionen</span>
     </div>
     <div class="stat">
@@ -159,17 +174,56 @@
       <h3>B197</h3>
       <p>Automatik-Ausbildung mit voller Berechtigung für Schaltwagen. Das Beste aus beiden Welten, in einem Kurs.</p>
     </div>
-    <div class="class-card reveal">
+    <div class="class-card reveal" data-loc="a">
       <span class="class-tag">Klasse</span>
       <h3>B96</h3>
       <p>Erweiterung für Anhänger bis 4.250&nbsp;kg Gesamtmasse — perfekt für Wohnwagen, Trailer &amp; Co.</p>
     </div>
-    <div class="class-card reveal">
+    <div class="class-card reveal" data-loc="a">
       <span class="class-tag">Klasse</span>
       <h3>BE</h3>
       <p>Die Anhängerklasse für schwerere Gespanne über 3.500&nbsp;kg. Volle Flexibilität für große Anhänger.</p>
     </div>
   </div>
+  <p class="reveal" data-loc="b" style="max-width: 1100px; margin: 28px auto 0; padding: 0 24px; text-align: center; font-size: 13px; color: var(--ink-dark-dim);">Am Standort Schongau bieten wir aktuell die Klassen B, BA und B197 an — B96 und BE sind dem Standort Kaufbeuren vorbehalten.</p>
+</section>
+
+<!-- ================= PREISE ================= -->
+<section class="pricing" id="preise">
+  <div class="section-head">
+    <p class="eyebrow reveal">Preise</p>
+    <h2 class="reveal">Transparent kalkuliert</h2>
+    <p class="section-sub reveal">Beispielpreise zur Orientierung — dein individuelles Angebot besprechen wir gern in der kostenlosen Erstberatung.</p>
+  </div>
+
+  <div class="price-grid">
+    <div class="price-card reveal">
+      <span class="price-tag">Einmalig</span>
+      <span class="price-amount">300&nbsp;€</span>
+      <span class="price-unit">Grundgebühr</span>
+    </div>
+    <div class="price-card reveal">
+      <span class="price-tag">Pro Stunde</span>
+      <span class="price-amount">55&nbsp;€</span>
+      <span class="price-unit">Normale Fahrstunde (45&nbsp;Min.)</span>
+    </div>
+    <div class="price-card reveal">
+      <span class="price-tag">Pro Stunde</span>
+      <span class="price-amount">65&nbsp;€</span>
+      <span class="price-unit">Überlandfahrt</span>
+    </div>
+    <div class="price-card reveal">
+      <span class="price-tag">Pro Stunde</span>
+      <span class="price-amount">65&nbsp;€</span>
+      <span class="price-unit">Autobahnfahrt</span>
+    </div>
+    <div class="price-card reveal">
+      <span class="price-tag">Pro Stunde</span>
+      <span class="price-amount">70&nbsp;€</span>
+      <span class="price-unit">Nachtfahrt</span>
+    </div>
+  </div>
+  <p class="reveal" style="max-width: 640px; margin: 36px auto 0; padding: 0 24px; text-align: center; font-size: 13px; color: var(--ink-dark-dim);">Beispielpreise, unverbindlich. Zzgl. amtlicher Gebühren für Prüfungen &amp; Lehrmaterial — dein endgültiges Angebot erfährst du im persönlichen Gespräch.</p>
 </section>
 
 <!-- ================= FUHRPARK ================= -->
@@ -180,7 +234,7 @@
   </div>
 
   <div class="fleet-grid">
-    <div class="fleet-card reveal tilt">
+    <div class="fleet-card reveal tilt" data-loc="a">
       <div class="fleet-photo" data-speed="0.1">
         <img src="assets/cars/audi-a3-sline-1.jpg" alt="Audi A3 Limousine S-line, weiß" loading="lazy">
       </div>
@@ -201,7 +255,7 @@
       <h3>VW Golf 7 GTD</h3>
       <p>Schaltwagen mit Charakter</p>
     </div>
-    <div class="fleet-card reveal tilt">
+    <div class="fleet-card reveal tilt" data-loc="a">
       <div class="fleet-photo" data-speed="0.1">
         <img src="assets/cars/audi-a3-sline-2.jpg" alt="Audi A3 Limousine S-line, weiß, Zweitwagen" loading="lazy">
       </div>
@@ -210,6 +264,7 @@
     </div>
   </div>
   <p class="fleet-note reveal">Beispielfotos vergleichbarer Modelle — Fotocredits siehe Fußzeile.</p>
+  <p class="fleet-note reveal" data-loc="b">Am Standort Schongau stehen aktuell 2 Fahrzeuge zur Verfügung — die zweite S-line-Limousine ist Kaufbeuren vorbehalten.</p>
 </section>
 
 <!-- ================= TEAM ================= -->
@@ -232,7 +287,7 @@
     </div>
 
     <div class="team-list">
-      <div class="team-block active" data-key="haci" data-name="Haci" data-role="Fahrlehrer" data-hue="210" data-initials="HA" data-photo="assets/mitarbeiter/haci.webp">
+      <div class="team-block active" data-loc="a" data-key="haci" data-name="Haci" data-role="Fahrlehrer" data-hue="210" data-initials="HA" data-photo="assets/mitarbeiter/haci.webp">
         <div class="team-block-photo">
           <div class="team-block-avatar" style="--hue:210">HA</div>
           <img class="team-block-img" data-key="haci" alt="Haci" loading="lazy">
@@ -240,9 +295,14 @@
         <span class="team-block-index">01</span>
         <h3>Haci</h3>
         <p class="team-role">Fahrlehrer</p>
+        <ul class="team-langs">
+          <li><img src="assets/flags/de.svg" alt="Deutsch" title="Deutsch" loading="lazy"></li>
+          <li><img src="assets/flags/tr.svg" alt="Türkisch" title="Türkisch" loading="lazy"></li>
+          <li><img src="assets/flags/gb.svg" alt="Englisch" title="Englisch" loading="lazy"></li>
+        </ul>
         <p>Gibt dir die Freiheit, in deinem eigenen Tempo zu lernen — inklusive kostenloser Erstberatung.</p>
       </div>
-      <div class="team-block" data-key="sandra" data-name="Sandra" data-role="Fahrlehrerin" data-hue="260" data-initials="SA" data-photo="/team/sandra.jpg">
+      <div class="team-block" data-loc="a" data-key="sandra" data-name="Sandra" data-role="Fahrlehrerin" data-hue="260" data-initials="SA" data-photo="/team/sandra.jpg">
         <div class="team-block-photo">
           <div class="team-block-avatar" style="--hue:260">SA</div>
           <img class="team-block-img" data-key="sandra" alt="Sandra" loading="lazy">
@@ -250,9 +310,15 @@
         <span class="team-block-index">02</span>
         <h3>Sandra</h3>
         <p class="team-role">Fahrlehrerin</p>
+        <ul class="team-langs">
+          <li><img src="assets/flags/de.svg" alt="Deutsch" title="Deutsch" loading="lazy"></li>
+          <li><img src="assets/flags/gb.svg" alt="Englisch" title="Englisch" loading="lazy"></li>
+          <li><img src="assets/flags/rs.svg" alt="Serbisch" title="Serbisch" loading="lazy"></li>
+          <li><img src="assets/flags/es.svg" alt="Spanisch" title="Spanisch" loading="lazy"></li>
+        </ul>
         <p>Bereitet dich umfassend auf echte Mobilität vor — geduldig, freundlich und mit viel Erfahrung.</p>
       </div>
-      <div class="team-block" data-key="melissa" data-name="Melissa" data-role="Theorie &amp; Organisation" data-hue="190" data-initials="ME" data-photo="assets/mitarbeiter/melissa.webp">
+      <div class="team-block" data-loc="a" data-key="melissa" data-name="Melissa" data-role="Theorie &amp; Organisation" data-hue="190" data-initials="ME" data-photo="assets/mitarbeiter/melissa.webp">
         <div class="team-block-photo">
           <div class="team-block-avatar" style="--hue:190">ME</div>
           <img class="team-block-img" data-key="melissa" alt="Melissa" loading="lazy">
@@ -260,9 +326,45 @@
         <span class="team-block-index">03</span>
         <h3>Melissa</h3>
         <p class="team-role">Theorie &amp; Organisation</p>
+        <ul class="team-langs">
+          <li><img src="assets/flags/de.svg" alt="Deutsch" title="Deutsch" loading="lazy"></li>
+          <li><img src="assets/flags/tr.svg" alt="Türkisch" title="Türkisch" loading="lazy"></li>
+          <li>
+            <svg class="flag-kurdistan" viewBox="0 0 900 600" role="img" aria-label="Kurdisch">
+              <title>Kurdisch</title>
+              <rect width="900" height="200" y="0" fill="#D2122E"/>
+              <rect width="900" height="200" y="200" fill="#FFFFFF"/>
+              <rect width="900" height="200" y="400" fill="#319132"/>
+              <g fill="#F8C300">
+                <polygon points="441,215 459,215 450,145" transform="rotate(0 450 300)"/>
+                <polygon points="441,215 459,215 450,145" transform="rotate(17.1 450 300)"/>
+                <polygon points="441,215 459,215 450,145" transform="rotate(34.3 450 300)"/>
+                <polygon points="441,215 459,215 450,145" transform="rotate(51.4 450 300)"/>
+                <polygon points="441,215 459,215 450,145" transform="rotate(68.6 450 300)"/>
+                <polygon points="441,215 459,215 450,145" transform="rotate(85.7 450 300)"/>
+                <polygon points="441,215 459,215 450,145" transform="rotate(102.9 450 300)"/>
+                <polygon points="441,215 459,215 450,145" transform="rotate(120.0 450 300)"/>
+                <polygon points="441,215 459,215 450,145" transform="rotate(137.1 450 300)"/>
+                <polygon points="441,215 459,215 450,145" transform="rotate(154.3 450 300)"/>
+                <polygon points="441,215 459,215 450,145" transform="rotate(171.4 450 300)"/>
+                <polygon points="441,215 459,215 450,145" transform="rotate(188.6 450 300)"/>
+                <polygon points="441,215 459,215 450,145" transform="rotate(205.7 450 300)"/>
+                <polygon points="441,215 459,215 450,145" transform="rotate(222.9 450 300)"/>
+                <polygon points="441,215 459,215 450,145" transform="rotate(240.0 450 300)"/>
+                <polygon points="441,215 459,215 450,145" transform="rotate(257.1 450 300)"/>
+                <polygon points="441,215 459,215 450,145" transform="rotate(274.3 450 300)"/>
+                <polygon points="441,215 459,215 450,145" transform="rotate(291.4 450 300)"/>
+                <polygon points="441,215 459,215 450,145" transform="rotate(308.6 450 300)"/>
+                <polygon points="441,215 459,215 450,145" transform="rotate(325.7 450 300)"/>
+                <polygon points="441,215 459,215 450,145" transform="rotate(342.9 450 300)"/>
+              </g>
+              <circle cx="450" cy="300" r="90" fill="#F8C300"/>
+            </svg>
+          </li>
+        </ul>
         <p>Unterstützt dich bei Theorie, Praxis-Koordination und allen administrativen Fragen rund um deinen Führerschein.</p>
       </div>
-      <div class="team-block" data-key="elias" data-name="Elias" data-role="Fahrlehrer" data-hue="30" data-initials="EL" data-photo="assets/mitarbeiter/elias.webp">
+      <div class="team-block" data-loc="a" data-key="elias" data-name="Elias" data-role="Fahrlehrer" data-hue="30" data-initials="EL" data-photo="assets/mitarbeiter/elias.webp">
         <div class="team-block-photo">
           <div class="team-block-avatar" style="--hue:30">EL</div>
           <img class="team-block-img" data-key="elias" alt="Elias" loading="lazy">
@@ -270,9 +372,13 @@
         <span class="team-block-index">04</span>
         <h3>Elias</h3>
         <p class="team-role">Fahrlehrer</p>
+        <ul class="team-langs">
+          <li><img src="assets/flags/de.svg" alt="Deutsch" title="Deutsch" loading="lazy"></li>
+          <li><img src="assets/flags/sa.svg" alt="Arabisch" title="Arabisch" loading="lazy"></li>
+        </ul>
         <p>Begleitet dich ruhig und zuverlässig durch jede Fahrstunde — mit einem offenen Ohr für deine Fragen.</p>
       </div>
-      <div class="team-block" data-key="bianca" data-name="Bianca" data-role="Fahrlehrerin" data-hue="330" data-initials="BI" data-photo="assets/mitarbeiter/bianca.webp">
+      <div class="team-block" data-loc="a" data-key="bianca" data-name="Bianca" data-role="Fahrlehrerin" data-hue="330" data-initials="BI" data-photo="assets/mitarbeiter/bianca.webp">
         <div class="team-block-photo">
           <div class="team-block-avatar" style="--hue:330">BI</div>
           <img class="team-block-img" data-key="bianca" alt="Bianca" loading="lazy">
@@ -280,7 +386,41 @@
         <span class="team-block-index">05</span>
         <h3>Bianca</h3>
         <p class="team-role">Fahrlehrerin</p>
+        <ul class="team-langs">
+          <li><img src="assets/flags/de.svg" alt="Deutsch" title="Deutsch" loading="lazy"></li>
+          <li><img src="assets/flags/gb.svg" alt="Englisch" title="Englisch" loading="lazy"></li>
+        </ul>
         <p>Bringt dir mit viel Geduld und guter Laune genau das Fahrgefühl bei, das du für die Prüfung brauchst.</p>
+      </div>
+      <div class="team-block" data-loc="b" data-key="lukas" data-name="Lukas" data-role="Fahrlehrer" data-hue="150" data-initials="LU" data-photo="/team/lukas.jpg">
+        <div class="team-block-photo">
+          <div class="team-block-avatar" style="--hue:150">LU</div>
+          <img class="team-block-img" data-key="lukas" alt="Lukas" loading="lazy">
+        </div>
+        <span class="team-block-index">01</span>
+        <h3>Lukas</h3>
+        <p class="team-role">Fahrlehrer</p>
+        <p>Bringt dir mit ruhiger Hand und klaren Ansagen jede Fahrsituation näher.</p>
+      </div>
+      <div class="team-block" data-loc="b" data-key="nina" data-name="Nina" data-role="Fahrlehrerin" data-hue="340" data-initials="NI" data-photo="/team/nina.jpg">
+        <div class="team-block-photo">
+          <div class="team-block-avatar" style="--hue:340">NI</div>
+          <img class="team-block-img" data-key="nina" alt="Nina" loading="lazy">
+        </div>
+        <span class="team-block-index">02</span>
+        <h3>Nina</h3>
+        <p class="team-role">Fahrlehrerin</p>
+        <p>Motiviert dich mit viel Geduld bis zur bestandenen Prüfung.</p>
+      </div>
+      <div class="team-block" data-loc="b" data-key="tom" data-name="Tom" data-role="Theorie &amp; Organisation" data-hue="45" data-initials="TO" data-photo="/team/tom.jpg">
+        <div class="team-block-photo">
+          <div class="team-block-avatar" style="--hue:45">TO</div>
+          <img class="team-block-img" data-key="tom" alt="Tom" loading="lazy">
+        </div>
+        <span class="team-block-index">03</span>
+        <h3>Tom</h3>
+        <p class="team-role">Theorie &amp; Organisation</p>
+        <p>Kümmert sich um Anmeldung, Theorie-Termine und alle Fragen rund um den Ablauf.</p>
       </div>
     </div>
   </div>
@@ -291,61 +431,253 @@
   <div class="section-head light">
     <p class="eyebrow reveal">Google Bewertungen</p>
     <h2 class="reveal">Das sagen unsere Fahrschüler</h2>
-    <div class="reviews-summary reveal">
-      <span class="big-rating">4,8</span>
+    <div class="reviews-summary reveal" data-loc="a">
+      <span class="big-rating">4,9</span>
       <div>
         <div class="stars" aria-hidden="true">★★★★★</div>
-        <p>basierend auf 77 Google-Rezensionen</p>
+        <p>basierend auf 82 Google-Rezensionen</p>
+      </div>
+    </div>
+    <div class="reviews-summary reveal" data-loc="b">
+      <span class="big-rating">5,0</span>
+      <div>
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>basierend auf 8 Google-Rezensionen</p>
       </div>
     </div>
   </div>
 
   <div class="reviews-marquee">
     <div class="reviews-track" id="reviewsTrack">
-      <div class="review-card">
+      <div class="review-card" data-loc="a">
         <div class="stars" aria-hidden="true">★★★★★</div>
-        <p>„Alle Fahrlehrer sind total geduldig und mega lieb :)“</p>
-        <span class="review-author">Milane Kloth</span>
-      </div>
-      <div class="review-card">
-        <div class="stars" aria-hidden="true">★★★★★</div>
-        <p>„Vielen Dank, meine wertvolle, schöne, freundliche und sehr gute Lehrerin Sandra.“</p>
-        <span class="review-author">Gamze Gölcük</span>
-      </div>
-      <div class="review-card">
-        <div class="stars" aria-hidden="true">★★★★★</div>
-        <p>„Ich bin unglaublich froh, mich für die Fahrschule Low Fly entschieden zu haben.“</p>
+        <p>„Ich bin unglaublich froh, mich für die Fahrschule Low Fly entschieden zu haben. Mein Fahrlehrer Haci ist menschlich wie fachlich einfach klasse – immer geduldig, ehrlich und mit viel Humor. Dank seiner Unterstützung und Motivation habe ich die Prüfung bestanden und gehe jetzt mit einem sicheren Gefühl mit Hänger auf die Straße.“</p>
         <span class="review-author">Tobi Penz</span>
       </div>
-      <div class="review-card" aria-hidden="true">
+      <div class="review-card" data-loc="a">
         <div class="stars" aria-hidden="true">★★★★★</div>
-        <p>„Alle Fahrlehrer sind total geduldig und mega lieb :)“</p>
-        <span class="review-author">Milane Kloth</span>
+        <p>„Ich hatte eine sehr gute Erfahrung mit der Fahrschule Low Fly! Die Fahrstunden mit meiner Fahrlehrerin Sandra haben mir immer Spaß gemacht. Sie ist sehr geduldig, ruhig und erklärt alles klar und verständlich.“</p>
+        <span class="review-author">Bulgac Doina</span>
       </div>
-      <div class="review-card" aria-hidden="true">
+      <div class="review-card" data-loc="a">
         <div class="stars" aria-hidden="true">★★★★★</div>
-        <p>„Vielen Dank, meine wertvolle, schöne, freundliche und sehr gute Lehrerin Sandra.“</p>
-        <span class="review-author">Gamze Gölcük</span>
+        <p>„Super Fahrschule! Das gesamte Team ist unglaublich freundlich, geduldig und professionell. Die Fahrstunden haben viel Spaß gemacht und ich habe mich jederzeit sicher und gut unterstützt gefühlt. Bedanke mich herzlich bei dir Bianca ☺️“</p>
+        <span class="review-author">Emili Ebel</span>
       </div>
-      <div class="review-card" aria-hidden="true">
+      <div class="review-card" data-loc="a">
         <div class="stars" aria-hidden="true">★★★★★</div>
-        <p>„Ich bin unglaublich froh, mich für die Fahrschule Low Fly entschieden zu haben.“</p>
+        <p>„Herr Elias ist ein außergewöhnlicher Fahrlehrer. Er hat mich optimal auf die deutschen Verkehrsregeln und die praktische Fahrprüfung vorbereitet. Mit viel Geduld und Professionalität hat er mir jedes Detail verständlich erklärt und mir das nötige Selbstvertrauen gegeben.“</p>
+        <span class="review-author">Zehra Türkmen</span>
+      </div>
+      <div class="review-card" data-loc="a">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich möchte mich herzlich bei Elias bedanken. Er ist für mich der beste Fahrlehrer. Er ist sympathisch, diszipliniert und ein echtes Vorbild. Dank seiner tollen Unterstützung habe ich meinen Führerschein direkt beim ersten Versuch bestanden.“</p>
+        <span class="review-author">Omid Sa</span>
+      </div>
+      <div class="review-card" data-loc="a">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich kann meine Fahrschule wirklich nur weiterempfehlen! 🚗💨 Von Anfang an habe ich mich super wohl und gut aufgehoben gefühlt. Die Fahrlehrer waren geduldig, freundlich und haben alles verständlich erklärt. Ein ganz besonderes Dankeschön geht an meinen Fahrlehrer Elias – du warst einfach top! 🙌“</p>
+        <span class="review-author">Rama Aladim</span>
+      </div>
+      <div class="review-card" data-loc="a">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Beste Fahrschule, die besten Erfahrungen habe ich da gemacht. Alle sind korrekt. Grüße an Elias, mein Fahrlehrer, bester Mann, ich würde diese Fahrschule nur weiterempfehlen. Grüße an den Chef Haci.“</p>
+        <span class="review-author">Alberto Fricano</span>
+      </div>
+      <div class="review-card" data-loc="a">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Beste Fahrschule! Das Team war unglaublich freundlich, geduldig und professionell. Die Fahrstunden mit Elias waren lehrreich, entspannt und haben mir richtig Spaß gemacht. Ich habe mich jederzeit sicher und gut unterstützt gefühlt.“</p>
+        <span class="review-author">Karam Zetoun</span>
+      </div>
+
+      <div class="review-card" data-loc="a" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich bin unglaublich froh, mich für die Fahrschule Low Fly entschieden zu haben. Mein Fahrlehrer Haci ist menschlich wie fachlich einfach klasse – immer geduldig, ehrlich und mit viel Humor. Dank seiner Unterstützung und Motivation habe ich die Prüfung bestanden und gehe jetzt mit einem sicheren Gefühl mit Hänger auf die Straße.“</p>
         <span class="review-author">Tobi Penz</span>
       </div>
-      <div class="review-card" aria-hidden="true">
+      <div class="review-card" data-loc="a" aria-hidden="true">
         <div class="stars" aria-hidden="true">★★★★★</div>
-        <p>„Alle Fahrlehrer sind total geduldig und mega lieb :)“</p>
-        <span class="review-author">Milane Kloth</span>
+        <p>„Ich hatte eine sehr gute Erfahrung mit der Fahrschule Low Fly! Die Fahrstunden mit meiner Fahrlehrerin Sandra haben mir immer Spaß gemacht. Sie ist sehr geduldig, ruhig und erklärt alles klar und verständlich.“</p>
+        <span class="review-author">Bulgac Doina</span>
       </div>
-      <div class="review-card" aria-hidden="true">
+      <div class="review-card" data-loc="a" aria-hidden="true">
         <div class="stars" aria-hidden="true">★★★★★</div>
-        <p>„Vielen Dank, meine wertvolle, schöne, freundliche und sehr gute Lehrerin Sandra.“</p>
-        <span class="review-author">Gamze Gölcük</span>
+        <p>„Super Fahrschule! Das gesamte Team ist unglaublich freundlich, geduldig und professionell. Die Fahrstunden haben viel Spaß gemacht und ich habe mich jederzeit sicher und gut unterstützt gefühlt. Bedanke mich herzlich bei dir Bianca ☺️“</p>
+        <span class="review-author">Emili Ebel</span>
       </div>
-      <div class="review-card" aria-hidden="true">
+      <div class="review-card" data-loc="a" aria-hidden="true">
         <div class="stars" aria-hidden="true">★★★★★</div>
-        <p>„Ich bin unglaublich froh, mich für die Fahrschule Low Fly entschieden zu haben.“</p>
+        <p>„Herr Elias ist ein außergewöhnlicher Fahrlehrer. Er hat mich optimal auf die deutschen Verkehrsregeln und die praktische Fahrprüfung vorbereitet. Mit viel Geduld und Professionalität hat er mir jedes Detail verständlich erklärt und mir das nötige Selbstvertrauen gegeben.“</p>
+        <span class="review-author">Zehra Türkmen</span>
+      </div>
+      <div class="review-card" data-loc="a" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich möchte mich herzlich bei Elias bedanken. Er ist für mich der beste Fahrlehrer. Er ist sympathisch, diszipliniert und ein echtes Vorbild. Dank seiner tollen Unterstützung habe ich meinen Führerschein direkt beim ersten Versuch bestanden.“</p>
+        <span class="review-author">Omid Sa</span>
+      </div>
+      <div class="review-card" data-loc="a" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich kann meine Fahrschule wirklich nur weiterempfehlen! 🚗💨 Von Anfang an habe ich mich super wohl und gut aufgehoben gefühlt. Die Fahrlehrer waren geduldig, freundlich und haben alles verständlich erklärt. Ein ganz besonderes Dankeschön geht an meinen Fahrlehrer Elias – du warst einfach top! 🙌“</p>
+        <span class="review-author">Rama Aladim</span>
+      </div>
+      <div class="review-card" data-loc="a" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Beste Fahrschule, die besten Erfahrungen habe ich da gemacht. Alle sind korrekt. Grüße an Elias, mein Fahrlehrer, bester Mann, ich würde diese Fahrschule nur weiterempfehlen. Grüße an den Chef Haci.“</p>
+        <span class="review-author">Alberto Fricano</span>
+      </div>
+      <div class="review-card" data-loc="a" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Beste Fahrschule! Das Team war unglaublich freundlich, geduldig und professionell. Die Fahrstunden mit Elias waren lehrreich, entspannt und haben mir richtig Spaß gemacht. Ich habe mich jederzeit sicher und gut unterstützt gefühlt.“</p>
+        <span class="review-author">Karam Zetoun</span>
+      </div>
+
+      <div class="review-card" data-loc="a" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich bin unglaublich froh, mich für die Fahrschule Low Fly entschieden zu haben. Mein Fahrlehrer Haci ist menschlich wie fachlich einfach klasse – immer geduldig, ehrlich und mit viel Humor. Dank seiner Unterstützung und Motivation habe ich die Prüfung bestanden und gehe jetzt mit einem sicheren Gefühl mit Hänger auf die Straße.“</p>
         <span class="review-author">Tobi Penz</span>
+      </div>
+      <div class="review-card" data-loc="a" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich hatte eine sehr gute Erfahrung mit der Fahrschule Low Fly! Die Fahrstunden mit meiner Fahrlehrerin Sandra haben mir immer Spaß gemacht. Sie ist sehr geduldig, ruhig und erklärt alles klar und verständlich.“</p>
+        <span class="review-author">Bulgac Doina</span>
+      </div>
+      <div class="review-card" data-loc="a" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Super Fahrschule! Das gesamte Team ist unglaublich freundlich, geduldig und professionell. Die Fahrstunden haben viel Spaß gemacht und ich habe mich jederzeit sicher und gut unterstützt gefühlt. Bedanke mich herzlich bei dir Bianca ☺️“</p>
+        <span class="review-author">Emili Ebel</span>
+      </div>
+      <div class="review-card" data-loc="a" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Herr Elias ist ein außergewöhnlicher Fahrlehrer. Er hat mich optimal auf die deutschen Verkehrsregeln und die praktische Fahrprüfung vorbereitet. Mit viel Geduld und Professionalität hat er mir jedes Detail verständlich erklärt und mir das nötige Selbstvertrauen gegeben.“</p>
+        <span class="review-author">Zehra Türkmen</span>
+      </div>
+      <div class="review-card" data-loc="a" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich möchte mich herzlich bei Elias bedanken. Er ist für mich der beste Fahrlehrer. Er ist sympathisch, diszipliniert und ein echtes Vorbild. Dank seiner tollen Unterstützung habe ich meinen Führerschein direkt beim ersten Versuch bestanden.“</p>
+        <span class="review-author">Omid Sa</span>
+      </div>
+      <div class="review-card" data-loc="a" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich kann meine Fahrschule wirklich nur weiterempfehlen! 🚗💨 Von Anfang an habe ich mich super wohl und gut aufgehoben gefühlt. Die Fahrlehrer waren geduldig, freundlich und haben alles verständlich erklärt. Ein ganz besonderes Dankeschön geht an meinen Fahrlehrer Elias – du warst einfach top! 🙌“</p>
+        <span class="review-author">Rama Aladim</span>
+      </div>
+      <div class="review-card" data-loc="a" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Beste Fahrschule, die besten Erfahrungen habe ich da gemacht. Alle sind korrekt. Grüße an Elias, mein Fahrlehrer, bester Mann, ich würde diese Fahrschule nur weiterempfehlen. Grüße an den Chef Haci.“</p>
+        <span class="review-author">Alberto Fricano</span>
+      </div>
+      <div class="review-card" data-loc="a" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Beste Fahrschule! Das Team war unglaublich freundlich, geduldig und professionell. Die Fahrstunden mit Elias waren lehrreich, entspannt und haben mir richtig Spaß gemacht. Ich habe mich jederzeit sicher und gut unterstützt gefühlt.“</p>
+        <span class="review-author">Karam Zetoun</span>
+      </div>
+
+      <div class="review-card" data-loc="b">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich kann diese Fahrschule wirklich weiterempfehlen. Der gesamte Ablauf war von Anfang an gut organisiert und professionell. Besonders mein Fahrlehrer Dilovan war sehr geduldig, ruhig und hat alles verständlich erklärt.“</p>
+        <span class="review-author">Ahmet Yıldırım</span>
+      </div>
+      <div class="review-card" data-loc="b">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich habe meine Fahrprüfung direkt beim ersten Versuch bestanden – dank der großartigen Unterstützung der Fahrschule Low Fly! Der Fahrlehrer war sehr geduldig, professionell und hat alles ruhig und verständlich erklärt.“</p>
+        <span class="review-author">Mehmet emin Öztürk</span>
+      </div>
+      <div class="review-card" data-loc="b">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich habe hier meinen Motorradführerschein Klasse A gemacht und bin absolut begeistert. Ein ganz großes Dankeschön geht an meinen Fahrlehrer und gleichzeitig Inhaber Haci Mete. Er hat eine wahnsinnig ruhige, geduldige Art und fachlich extrem viel auf dem Kasten.“</p>
+        <span class="review-author">Kasim Kilic</span>
+      </div>
+      <div class="review-card" data-loc="b">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich hatte die Ehre mit Dilo Unterricht zu machen und es war sehr schön kommt alle.“</p>
+        <span class="review-author">Marko Melovic</span>
+      </div>
+      <div class="review-card" data-loc="b">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Beste Fahrschule 👌🏻🫶🏻“</p>
+        <span class="review-author">Michelle Meißner</span>
+      </div>
+      <div class="review-card" data-loc="b">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich kann es jeden nur empfehlen hier ein Führerschein zu machen. Die Mitarbeiter sind alle sehr freundlich und dank Ihnen habe ich meine Fahrprüfung beim ersten Mal bestanden.“</p>
+        <span class="review-author">Mustafa 3838</span>
+      </div>
+      <div class="review-card" data-loc="b">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich kann es auf jeden Fall weiterempfehlen; das Training hat mir sehr viel Spaß gemacht, ich war sehr zufrieden und habe meinen Führerschein beim ersten Versuch erhalten.“</p>
+        <span class="review-author">Mahmut Salik</span>
+      </div>
+
+      <div class="review-card" data-loc="b" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich kann diese Fahrschule wirklich weiterempfehlen. Der gesamte Ablauf war von Anfang an gut organisiert und professionell. Besonders mein Fahrlehrer Dilovan war sehr geduldig, ruhig und hat alles verständlich erklärt.“</p>
+        <span class="review-author">Ahmet Yıldırım</span>
+      </div>
+      <div class="review-card" data-loc="b" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich habe meine Fahrprüfung direkt beim ersten Versuch bestanden – dank der großartigen Unterstützung der Fahrschule Low Fly! Der Fahrlehrer war sehr geduldig, professionell und hat alles ruhig und verständlich erklärt.“</p>
+        <span class="review-author">Mehmet emin Öztürk</span>
+      </div>
+      <div class="review-card" data-loc="b" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich habe hier meinen Motorradführerschein Klasse A gemacht und bin absolut begeistert. Ein ganz großes Dankeschön geht an meinen Fahrlehrer und gleichzeitig Inhaber Haci Mete. Er hat eine wahnsinnig ruhige, geduldige Art und fachlich extrem viel auf dem Kasten.“</p>
+        <span class="review-author">Kasim Kilic</span>
+      </div>
+      <div class="review-card" data-loc="b" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich hatte die Ehre mit Dilo Unterricht zu machen und es war sehr schön kommt alle.“</p>
+        <span class="review-author">Marko Melovic</span>
+      </div>
+      <div class="review-card" data-loc="b" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Beste Fahrschule 👌🏻🫶🏻“</p>
+        <span class="review-author">Michelle Meißner</span>
+      </div>
+      <div class="review-card" data-loc="b" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich kann es jeden nur empfehlen hier ein Führerschein zu machen. Die Mitarbeiter sind alle sehr freundlich und dank Ihnen habe ich meine Fahrprüfung beim ersten Mal bestanden.“</p>
+        <span class="review-author">Mustafa 3838</span>
+      </div>
+      <div class="review-card" data-loc="b" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich kann es auf jeden Fall weiterempfehlen; das Training hat mir sehr viel Spaß gemacht, ich war sehr zufrieden und habe meinen Führerschein beim ersten Versuch erhalten.“</p>
+        <span class="review-author">Mahmut Salik</span>
+      </div>
+
+      <div class="review-card" data-loc="b" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich kann diese Fahrschule wirklich weiterempfehlen. Der gesamte Ablauf war von Anfang an gut organisiert und professionell. Besonders mein Fahrlehrer Dilovan war sehr geduldig, ruhig und hat alles verständlich erklärt.“</p>
+        <span class="review-author">Ahmet Yıldırım</span>
+      </div>
+      <div class="review-card" data-loc="b" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich habe meine Fahrprüfung direkt beim ersten Versuch bestanden – dank der großartigen Unterstützung der Fahrschule Low Fly! Der Fahrlehrer war sehr geduldig, professionell und hat alles ruhig und verständlich erklärt.“</p>
+        <span class="review-author">Mehmet emin Öztürk</span>
+      </div>
+      <div class="review-card" data-loc="b" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich habe hier meinen Motorradführerschein Klasse A gemacht und bin absolut begeistert. Ein ganz großes Dankeschön geht an meinen Fahrlehrer und gleichzeitig Inhaber Haci Mete. Er hat eine wahnsinnig ruhige, geduldige Art und fachlich extrem viel auf dem Kasten.“</p>
+        <span class="review-author">Kasim Kilic</span>
+      </div>
+      <div class="review-card" data-loc="b" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich hatte die Ehre mit Dilo Unterricht zu machen und es war sehr schön kommt alle.“</p>
+        <span class="review-author">Marko Melovic</span>
+      </div>
+      <div class="review-card" data-loc="b" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Beste Fahrschule 👌🏻🫶🏻“</p>
+        <span class="review-author">Michelle Meißner</span>
+      </div>
+      <div class="review-card" data-loc="b" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich kann es jeden nur empfehlen hier ein Führerschein zu machen. Die Mitarbeiter sind alle sehr freundlich und dank Ihnen habe ich meine Fahrprüfung beim ersten Mal bestanden.“</p>
+        <span class="review-author">Mustafa 3838</span>
+      </div>
+      <div class="review-card" data-loc="b" aria-hidden="true">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>„Ich kann es auf jeden Fall weiterempfehlen; das Training hat mir sehr viel Spaß gemacht, ich war sehr zufrieden und habe meinen Führerschein beim ersten Versuch erhalten.“</p>
+        <span class="review-author">Mahmut Salik</span>
       </div>
     </div>
   </div>
@@ -372,21 +704,33 @@
       <p class="reveal">Schreib uns, ruf an oder komm direkt vorbei — wir freuen uns auf dich.</p>
 
       <ul class="contact-list reveal">
-        <li>
+        <li data-loc="a">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12Z" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.3"/></svg>
           <div><strong>Neugablonzer Str. 37</strong><span>87600 Kaufbeuren</span></div>
         </li>
-        <li>
+        <li data-loc="b">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12Z" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.3"/></svg>
+          <div><strong>Oskar-von-Miller-Straße 10</strong><span>86956 Schongau</span></div>
+        </li>
+        <li data-loc="a">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 5c0 8.3 6.7 15 15 15l3-4-6-3-2 2c-2-1-4-3-5-5l2-2-3-6-4 3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
           <div><a href="tel:+491728970226"><strong>0172 8970226</strong></a><span>Mo–Sa nach Vereinbarung</span></div>
+        </li>
+        <li data-loc="b">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 5c0 8.3 6.7 15 15 15l3-4-6-3-2 2c-2-1-4-3-5-5l2-2-3-6-4 3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          <div><a href="tel:+491748417957"><strong>0174 8417957</strong></a><span>Mo–Sa nach Vereinbarung</span></div>
         </li>
         <li>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.3"/></svg>
           <div><a href="mailto:info@fahrschule-low-fly.de"><strong>info@fahrschule-low-fly.de</strong></a><span>Antwort innerhalb 24h</span></div>
         </li>
-        <li>
+        <li data-loc="a">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.3"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
           <div><strong>Dienstag &amp; Donnerstag</strong><span>17:30 – 19:45 Uhr</span></div>
+        </li>
+        <li data-loc="b">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.3"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          <div><strong>Montag &amp; Mittwoch</strong><span>17:30 – 19:45 Uhr</span></div>
         </li>
       </ul>
 
@@ -405,16 +749,24 @@
           <input type="email" name="email" required placeholder="du@beispiel.de">
         </label>
       </div>
-      <label>Gewünschte Klasse
-        <select name="klasse">
-          <option>B</option>
-          <option>BA</option>
-          <option>B197</option>
-          <option>B96</option>
-          <option>BE</option>
-          <option>Noch unsicher</option>
-        </select>
-      </label>
+      <div class="form-row">
+        <label>Standort
+          <select name="standort" id="standortSelect">
+            <option value="a">Kaufbeuren</option>
+            <option value="b">Schongau</option>
+          </select>
+        </label>
+        <label>Gewünschte Klasse
+          <select name="klasse">
+            <option>B</option>
+            <option>BA</option>
+            <option>B197</option>
+            <option>B96</option>
+            <option>BE</option>
+            <option>Noch unsicher</option>
+          </select>
+        </label>
+      </div>
       <label>Nachricht
         <textarea name="message" rows="4" placeholder="Erzähl uns kurz von dir …"></textarea>
       </label>
@@ -449,6 +801,7 @@
     <nav class="footer-links">
       <a href="#werte">Werte</a>
       <a href="#klassen">Klassen</a>
+      <a href="#preise">Preise</a>
       <a href="#fuhrpark">Fuhrpark</a>
       <a href="#team">Team</a>
       <a href="#bewertungen">Bewertungen</a>

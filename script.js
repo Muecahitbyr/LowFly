@@ -4,6 +4,7 @@
 
 import './common.js';
 import { getConsent, grantMapsConsent } from './consent.js';
+import { initLocationSwitch } from './locations.js';
 
 // real employee photos — imported so Vite resolves/hashes/copies them into
 // the production build (a data-photo string alone wouldn't be picked up)
@@ -28,9 +29,8 @@ document.querySelectorAll('.team-block-img').forEach((img) => {
 
 /* ---------- team sticky-scroll: active block detection + image crossfade ---------- */
 (function initTeamSticky() {
-  const blocks = Array.from(document.querySelectorAll('.team-block'));
   const visual = document.getElementById('teamVisual');
-  if (!blocks.length || !visual) return;
+  if (!visual) return;
 
   const nameEl = document.getElementById('teamVisualName');
   const roleEl = document.getElementById('teamVisualRole');
@@ -38,8 +38,16 @@ document.querySelectorAll('.team-block-img').forEach((img) => {
   const fallbackEl = document.getElementById('teamVisualFallback');
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  let activeBlock = blocks[0];
+  // re-collected on every Standort switch, since the switcher hides the
+  // other Standort's blocks via CSS (display:none → offsetParent null)
+  // rather than removing them from the DOM
+  let blocks = [];
+  let activeBlock = null;
   let swapTimer = null;
+
+  function visibleBlocks() {
+    return Array.from(document.querySelectorAll('.team-block')).filter(el => el.offsetParent !== null);
+  }
 
   function applyBlock(block) {
     nameEl.textContent = block.dataset.name;
@@ -64,9 +72,6 @@ document.querySelectorAll('.team-block-img').forEach((img) => {
     }, 280);
   }
 
-  imgEl.addEventListener('error', () => { imgEl.style.display = 'none'; });
-  applyBlock(activeBlock); // set initial src only after the error listener is attached
-
   function updateActive() {
     const targetY = window.innerHeight * 0.45;
     let closest = null;
@@ -83,6 +88,18 @@ document.querySelectorAll('.team-block-img').forEach((img) => {
     }
   }
 
+  function refreshBlocks() {
+    blocks = visibleBlocks();
+    if (!blocks.length) return;
+    activeBlock = blocks[0];
+    blocks.forEach(b => b.classList.toggle('active', b === activeBlock));
+    applyBlock(activeBlock);
+    updateActive();
+  }
+
+  imgEl.addEventListener('error', () => { imgEl.style.display = 'none'; });
+  refreshBlocks(); // set initial active block only after the error listener is attached
+
   let ticking = false;
   window.addEventListener('scroll', () => {
     if (ticking) return;
@@ -90,7 +107,7 @@ document.querySelectorAll('.team-block-img').forEach((img) => {
     requestAnimationFrame(() => { updateActive(); ticking = false; });
   }, { passive: true });
 
-  updateActive();
+  window.addEventListener('lowfly-location-change', refreshBlocks);
 })();
 
 /* ---------- scroll progress + nav state ---------- */
@@ -120,7 +137,7 @@ revealTargets.forEach(el => io.observe(el));
 
 /* stagger cards that sit side by side in a grid/rail, so they cascade in
    one after another instead of all popping at once */
-document.querySelectorAll('.values-grid, .classes-rail, .fleet-grid').forEach(group => {
+document.querySelectorAll('.values-grid, .classes-rail, .price-grid, .fleet-grid').forEach(group => {
   Array.from(group.children).forEach((el, i) => {
     if (el.classList.contains('reveal') || el.classList.contains('reveal-scale')) {
       el.style.transitionDelay = `${Math.min(i * 90, 360)}ms`;
@@ -214,23 +231,48 @@ document.querySelectorAll('.fleet-card.tilt').forEach(card => {
   });
 });
 
-/* ---------- contact form (no backend — friendly local confirmation) ---------- */
+/* ---------- contact form: opens the visitor's own email client with the
+   entered data pre-filled (mailto:), instead of a backend/SMTP send ---------- */
+const CONTACT_EMAIL = 'info@fahrschule-low-fly.de';
 const form = document.getElementById('contactForm');
 const formNote = document.getElementById('formNote');
+
+// "Standort" field defaults to whichever location the visitor is currently
+// browsing, and follows along if they switch it via any loc-switch pill
+if (form.standort) {
+  window.addEventListener('lowfly-location-change', (e) => { form.standort.value = e.detail.id; });
+}
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const name = form.querySelector('[name="name"]').value.trim();
-  formNote.textContent = `Danke${name ? ', ' + name : ''}! Bitte sende deine Anfrage zusätzlich per Telefon oder E-Mail ab, damit wir sie sicher erhalten.`;
-  form.reset();
+  const email = form.querySelector('[name="email"]').value.trim();
+  const standortLabel = form.standort.options[form.standort.selectedIndex].text;
+  const klasse = form.querySelector('[name="klasse"]').value;
+  const message = form.querySelector('[name="message"]').value.trim();
+
+  const subject = `Anfrage über die Website – ${standortLabel}`;
+  const body = [
+    `Name: ${name}`,
+    `E-Mail: ${email}`,
+    `Standort: ${standortLabel}`,
+    `Gewünschte Klasse: ${klasse}`,
+    '',
+    'Nachricht:',
+    message || '(keine Angabe)',
+  ].join('\n');
+
+  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  formNote.textContent = 'Dein E-Mail-Programm öffnet sich jetzt mit einer vorausgefüllten Nachricht — bitte dort nur noch auf „Senden" klicken.';
 });
 
 /* ---------- Google Maps: only loaded after consent (TTDSG §25) ---------- */
 const mapWrap = document.querySelector('.map-wrap');
 if (mapWrap) {
-  const mapSrc = mapWrap.dataset.src;
+  const buildMapSrc = (query) => `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`;
   const loadMap = () => {
     const iframe = mapWrap.querySelector('iframe');
-    if (iframe && !iframe.src) iframe.src = mapSrc;
+    if (iframe && !iframe.src) iframe.src = mapWrap.dataset.src;
     mapWrap.classList.add('is-loaded');
   };
   const consent = getConsent();
@@ -245,4 +287,13 @@ if (mapWrap) {
   window.addEventListener('lowfly-consent-change', (e) => {
     if (e.detail.maps) loadMap();
   });
+  window.addEventListener('lowfly-location-change', (e) => {
+    mapWrap.dataset.src = buildMapSrc(e.detail.mapQuery);
+    const iframe = mapWrap.querySelector('iframe');
+    if (iframe && iframe.src) iframe.src = mapWrap.dataset.src; // already loaded → jump to new Standort
+  });
 }
+
+/* ---------- Standort-Umschalter: applies stored/default choice once
+   every other lowfly-location-change listener above is wired up ---------- */
+initLocationSwitch();

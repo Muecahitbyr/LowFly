@@ -50,8 +50,8 @@ function buildBanner() {
   el.innerHTML = `
     <div class="cookie-banner-inner">
       <div class="cookie-banner-text">
-        <p class="cookie-banner-title">Diese Website respektiert deine Privatsphäre</p>
-        <p>Wir verwenden nur technisch notwendige Speicherung (z.&nbsp;B. für diese Einstellung). Für die interaktive Karte im Kontaktbereich möchten wir Inhalte von Google Maps laden — dabei werden Daten an Google Ireland Limited (ggf. Google LLC, USA) übertragen. Das passiert nur mit deiner Einwilligung. Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+        <p class="cookie-banner-title">Google Maps und deine Daten</p>
+        <p>Wir speichern nur, was technisch nötig ist, zum Beispiel diese Auswahl. Die Karte im Kontaktbereich kommt von Google Maps. Wenn sie lädt, gehen Daten an Google Ireland Limited (ggf. Google LLC, USA). Das passiert nur, wenn du zustimmst. Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
       </div>
       <div class="cookie-banner-settings" hidden>
         <label class="cookie-toggle">
@@ -60,7 +60,7 @@ function buildBanner() {
         </label>
         <label class="cookie-toggle">
           <input type="checkbox" id="cookieMapsToggle">
-          <span>Externe Inhalte — Google Maps <em>(Datenübertragung an Google)</em></span>
+          <span>Externe Inhalte: Google Maps <em>(Datenübertragung an Google)</em></span>
         </label>
       </div>
       <div class="cookie-banner-actions">

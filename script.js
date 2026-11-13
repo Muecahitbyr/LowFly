@@ -251,7 +251,7 @@ form.addEventListener('submit', (e) => {
   const klasse = form.querySelector('[name="klasse"]').value;
   const message = form.querySelector('[name="message"]').value.trim();
 
-  const subject = `Anfrage über die Website – ${standortLabel}`;
+  const subject = `Anfrage über die Website (${standortLabel})`;
   const body = [
     `Name: ${name}`,
     `E-Mail: ${email}`,
@@ -263,7 +263,7 @@ form.addEventListener('submit', (e) => {
   ].join('\n');
 
   window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  formNote.textContent = 'Dein E-Mail-Programm öffnet sich jetzt mit einer vorausgefüllten Nachricht — bitte dort nur noch auf „Senden" klicken.';
+  formNote.textContent = 'Dein E-Mail-Programm öffnet sich mit der fertigen Nachricht. Du musst dort nur noch auf "Senden" klicken.';
 });
 
 /* ---------- Google Maps: only loaded after consent (TTDSG §25) ---------- */
